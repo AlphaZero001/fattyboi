@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gianna Fatty | Christmas Celebration </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(180deg, #0a1628 0%, #1a2332 50%, #0f1419 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Subtle Snowflakes */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 1;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8em;
+            animation: fall linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #d4af37;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95em;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            color: #d4af37;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        h1 {
+            font-size: 5em;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .hero-description {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 50px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: #0a1628;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.02) 100%);
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 60px;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .countdown-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .countdown-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .countdown-number {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: #d4af37;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .countdown-label {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 100px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: transparent;
+            perspective: 1000px;
+            height: 400px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .feature-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-front {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background: rgba(212, 175, 55, 0.95);
+            border-color: rgba(212, 175, 55, 0.5);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .card-back::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 22, 40, 0.85);
+            border-radius: 20px;
+            z-index: 0;
+        }
+
+        .card-back .feature-description {
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .feature-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.02) 100%);
+            position: relative;
+            z-index: 10;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-text {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 22, 40, 0.95);
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            padding: 60px 20px 30px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-message {
+            font-size: 1.3em;
+            color: #d4af37;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95em;
+        }
+
+        .footer-links a:hover {
+            color: #d4af37;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3em;
+            }
+
+            .hero-description {
+                font-size: 1.1em;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .countdown-number {
+                font-size: 2.5em;
+            }
+
+            .features-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .santa-container,
+            .floating-reindeer {
+                display: none;
+            }
+        }
+
+        /* Santa Sleigh Animation with Message */
+        .santa-container {
+            position: fixed;
+            bottom: 60%;
+            left: -500px;
+            z-index: 9999;
+            animation: santaFly 20s linear infinite;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .santa-sleigh {
+            font-size: 4em;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+            flex-shrink: 0;
+        }
+
+        .santa-message {
+            background: rgba(255, 255, 255, 0.95);
+            color: #0a1628;
+            padding: 20px 30px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 1.2em;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid #d4af37;
+            min-width: 200px;
+            max-width: 300px;
+            text-align: center;
+            position: relative;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .santa-message::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-right: 12px solid #d4af37;
+        }
+
+        .santa-message::after {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid rgba(255, 255, 255, 0.95);
+        }
+
+        @keyframes santaFly {
+            0% {
+                left: -500px;
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-50px);
+            }
+            50% {
+                left: 50%;
+                transform: translateY(0) translateX(-50%);
+            }
+            75% {
+                transform: translateY(-50px);
+            }
+            100% {
+                left: calc(100% + 100px);
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Reindeer */
+        .floating-reindeer {
+            position: fixed;
+            font-size: 2.5em;
+            z-index: 9998;
+            pointer-events: none;
+            animation: floatReindeer 15s ease-in-out infinite;
+        }
+
+        .reindeer-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .reindeer-2 {
+            top: 70%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+
+        @keyframes floatReindeer {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(30px, -30px) rotate(10deg);
+            }
+            50% {
+                transform: translate(0, -60px) rotate(-10deg);
+            }
+            75% {
+                transform: translate(-30px, -30px) rotate(5deg);
+            }
+        }
+
+        /* Bouncing Snowman */
+        .bouncing-snowman {
+            position: fixed;
+            bottom: 20px;
+            left: 5%;
+            font-size: 3em;
+            z-index: 9997;
+            animation: snowmanBounce 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .bouncing-snowman:hover {
+            transform: scale(1.2) rotate(20deg);
+        }
+
+        @keyframes snowmanBounce {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+        }
+
+        /* Dancing Elf */
+        .dancing-elf {
+            position: fixed;
+            bottom: 20px;
+            right: 5%;
+            font-size: 2.5em;
+            z-index: 9997;
+            animation: elfDance 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        .dancing-elf:hover {
+            animation: elfSpin 1s linear infinite;
+        }
+
+        @keyframes elfDance {
+            0%, 100% {
+                transform: translateY(0) rotate(-10deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+            50% {
+                transform: translateY(0) rotate(-10deg);
+            }
+            75% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        @keyframes elfSpin {
+            0% {
+                transform: rotate(0deg) scale(1.2);
+            }
+            100% {
+                transform: rotate(360deg) scale(1.2);
+            }
+        }
+
+        /* Floating Presents */
+        .floating-present {
+            position: fixed;
+            font-size: 2em;
+            z-index: 9996;
+            animation: presentFloat 8s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .floating-present:hover {
+            transform: scale(1.3) rotate(360deg) !important;
+        }
+
+        .present-1 {
+            top: 15%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .present-2 {
+            top: 40%;
+            left: 8%;
+            animation-delay: 3s;
+        }
+
+        .present-3 {
+            top: 60%;
+            right: 12%;
+            animation-delay: 6s;
+        }
+
+        @keyframes presentFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(20px, -20px) rotate(15deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(-15deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Goofy Christmas Characters -->
+    <div class="santa-container" id="santaContainer">
+        <div class="santa-sleigh">🎅🛷</div>
+        <div class="santa-message" id="santaMessage">Happy Holidays! 🎄</div>
+    </div>
+    <div class="floating-reindeer reindeer-1">🦌</div>
+    <div class="floating-reindeer reindeer-2">🦌</div>
+    <div class="bouncing-snowman">⛄</div>
+    <div class="dancing-elf">🧝</div>
+    <div class="floating-present present-1">🎁</div>
+    <div class="floating-present present-2">🎁</div>
+    <div class="floating-present present-3">🎁</div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo"></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#countdown">Countdown</a></li>
+                <li><a href="#celebrate">Celebrate</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="hero-label">Happy Christmas fatty boi🎄</span>
+            <h1>YAYYY!!!🎄</h1>
+            <p class="hero-description">Love the human you are so much. Thank you for being there with me, and I wish it goes on for a hundred more years. Merry Christmas to you and your family, especially your mum.</p>
+            <a href="#countdown" class="cta-button"> Send my love to her hmph!.</a>
+        </div>
+    </section>
+
+    <section class="countdown-section" id="countdown">
+        <div class="section-container">
+            <h2 class="section-title">Until Christmas Day</h2>
+            <p class="section-subtitle">The most wonderful time of the year is approaching (me was expecting to send before Christmas this is coming late sigh)</p>
+            <div class="countdown-grid">
+                <div class="countdown-card">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-card">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-card">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-card">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" id="celebrate">
+        <div class="section-container">
+            <h2 class="section-title">Best time of the year</h2>
+            <p class="section-subtitle">Special it is cuz of Fatty being in it</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <span class="feature-icon">🎄</span>
+                            <h3 class="feature-title">Christmas it is HEHE</h3>
+                        </div>
+                        <div class="card-back" style="background-image: url('pics/christmas.jpg');">
+                            <p class="feature-description">Merry Christmas to cow... May the best happen to her :)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <span class="feature-icon">🎁</span>
+                            <h3 class="feature-title">DAMN ITS BEEN ONE YEAR</h3>
+                        </div>
+                        <div class="card-back" style="background-image: url('pics/anniversary.jpg');">
+                            <p class="feature-description">Me gonna stay with you for the rest of ours life hehe.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <span class="feature-icon">✨</span>
+                            <h3 class="feature-title">Magical Moments</h3>
+                        </div>
+                        <div class="card-back">
+                            <p class="feature-description">Nothing to see here cow..... Me just love you a lot❤️</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+        <div class="section-container">
+            <h2 class="section-title">Mooing Fatty</h2>
+            <p class="section-subtitle">Kept this rolling for a year woahh</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-audio="audio/mooing_fatty.mp3" style="background-image: url('pics/mooing_fatty.jpg');">
+                    <div class="gallery-overlay">
+                        <span class="gallery-text">Mooing fatty 🐄</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-audio="audio/singing_fatty.mp3" style="background-image: url('pics/singing_fatty.jpg');">
+                    <div class="gallery-overlay">
+                        <span class="gallery-text">Singing fatty 🎵</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-audio="audio/meowing_fatty.mp3" style="background-image: url('pics/meowing_fatty.png');">
+                    <div class="gallery-overlay">
+                        <span class="gallery-text"></span>
+                    </div>
+                </div>
+                <!-- <div class="gallery-item" data-audio="audio/sneezing_fatty.mp3" style="background-image: url('pics/sneezing_fatty.jpg');">
+                    <div class="gallery-overlay">
+                        <span class="gallery-text">😮Sneezing fatty 🤧</span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-message">Wishing you all the love and peace you could get...</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#countdown">Countdown</a>
+                <a href="#celebrate">Celebrate</a>
+                <a href="#gallery">Gallery</a>
+            </div>
+            <p class="copyright">© fatty</p>
+        </div>
+    </footer>
+
+    <script>
+        // Customizable Santa Message - CHANGE THIS TEXT!
+        const SANTA_MESSAGE = "Happy Anniversary🎂!!!";
+
+        // Set the Santa message
+        document.getElementById('santaMessage').textContent = SANTA_MESSAGE;
+
+        // Subtle Snowflakes
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❅';
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+            snowflake.style.fontSize = Math.random() * 0.5 + 0.5 + 'em';
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000);
+        }
+
+        setInterval(createSnowflake, 500);
+
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const christmas = new Date(currentYear, 11, 25);
+            
+            if (now > christmas) {
+                christmas.setFullYear(currentYear + 1);
+            }
+
+            const diff = christmas - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Gallery Audio Player
+        let currentAudio = null;
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            const audioSrc = item.getAttribute('data-audio');
+            
+            if (audioSrc) {
+                item.addEventListener('click', function() {
+                    // Stop currently playing audio
+                    if (currentAudio && !currentAudio.paused) {
+                        currentAudio.pause();
+                        currentAudio.currentTime = 0;
+                    }
+
+                    // Create and play new audio
+                    const audio = new Audio(audioSrc);
+                    currentAudio = audio;
+                    
+                    audio.play().catch(err => {
+                        console.error('Error playing audio:', err);
+                        alert('Could not play audio. Make sure the audio file exists at: ' + audioSrc);
+                    });
+
+                    // Add visual feedback
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            }
+        });
+
+        // Interactive Characters
+        const snowman = document.querySelector('.bouncing-snowman');
+        const elf = document.querySelector('.dancing-elf');
+        const presents = document.querySelectorAll('.floating-present');
+
+        // Snowman click - makes it jump higher
+        snowman.addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'snowmanBounce 0.5s ease-out';
+                setTimeout(() => {
+                    this.style.animation = 'snowmanBounce 3s ease-in-out infinite';
+                }, 500);
+            }, 10);
+        });
+
+        // Elf click - makes it dance faster
+        elf.addEventListener('click', function() {
+            this.style.animation = 'elfSpin 0.5s linear 3';
+            setTimeout(() => {
+                this.style.animation = 'elfDance 2s ease-in-out infinite';
+            }, 1500);
+        });
+
+        // Present click - makes them explode with confetti effect
+        presents.forEach(present => {
+            present.addEventListener('click', function() {
+                const originalContent = this.textContent;
+                this.textContent = '🎉';
+                this.style.transform = 'scale(2) rotate(360deg)';
+                
+                setTimeout(() => {
+                    this.textContent = originalContent;
+                    this.style.transform = '';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
